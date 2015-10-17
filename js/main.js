@@ -1,6 +1,6 @@
 $(document).ready(function (){
 	$('.btnScan').on('click', function (){
-		var code = $('.code').val();
+		var code = $('.scanCode').val();
 
 		$.ajax({
 			method: "POST",
@@ -10,7 +10,13 @@ $(document).ready(function (){
 			}
 		})
 		.done(function (data){
-			console.log(data);
+			$('.name span').text(data[0].name);
+			$('.price span').text(data[0].price);
+			$('.art span').text(data[0].art);
+			$('.code span').text(data[0].code);
+			// console.log(data.code);
+			// console.log(data.price);
+			// console.log(data.name);
 		})
 		.fail(function (){
 			console.log('FAIL');
